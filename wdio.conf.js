@@ -1,6 +1,8 @@
 const path = require('path');
 
 exports.config = {
+    user: process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
+    key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACC_KEY',
     //
     // ====================
     // Runner Configuration
@@ -52,6 +54,7 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
+        'browserstack.local': true,
         maxInstances: 5,
         //
         browserName: 'chrome',
@@ -93,7 +96,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:8080',
+    baseUrl: 'http://localhost:8000',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
